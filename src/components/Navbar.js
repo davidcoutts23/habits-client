@@ -10,7 +10,7 @@ export default function NavbarComponent() {
     <Router>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="home">React-Bootstrap</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -25,6 +25,7 @@ export default function NavbarComponent() {
         <Route path="/about" element={<About />} />
         <Route path="/tracker" element={<Tracker />} />
         <Route path="/scorecard" element={<Scorecard />} />
+        <Route path="/" element={<Scorecard />} />
       </Routes>
     </Router>
   );

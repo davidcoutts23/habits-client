@@ -10,6 +10,8 @@ export default function AddHabitComponent({ handleAddHabit }) {
     return (
       <Form
         onSubmit={(e) => {
+          setAddHabit(false);
+          setHabitName("");
           handleAddHabit(habitName);
         }}
       >
@@ -32,7 +34,7 @@ export default function AddHabitComponent({ handleAddHabit }) {
   }
   return (
     <div>
-      <Button variant="info" onClick={() => setAddHabit(true)}>
+      <Button className="mt-2" variant="info" onClick={() => setAddHabit(true)}>
         Add habit
       </Button>
     </div>
