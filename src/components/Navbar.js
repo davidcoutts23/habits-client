@@ -1,9 +1,9 @@
 import React from "react";
 import { Navbar, Container, NavDropdown, Nav } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import About from "./About"
-import Scorecard from "./Scorecard"
-import Tracker from "./Home"
+import About from "./About";
+import Scorecard from "./Scorecard";
+import Tracker from "./Home";
 
 export default function NavbarComponent() {
   return (
@@ -22,12 +22,14 @@ export default function NavbarComponent() {
         </Container>
       </Navbar>
       <Routes>
-        <Route path="/about" element={<About />}/>
-        <Route path="/tracker" element={<Tracker />}/>
-        <Route path="/scorecard" element={<Scorecard />}/>
+        <Route path="/about" element={<About />} />
+        <Route path="/tracker" element={<Tracker />} />
+        <Route path="/scorecard" element={<Scorecard />} />
       </Routes>
     </Router>
   );
 }
 
-{/* <Route path="/" element={<Home />} /> */}
+{
+  /* <Route path="/" element={<Home />} /> */
+}
