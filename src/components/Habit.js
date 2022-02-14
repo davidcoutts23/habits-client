@@ -5,8 +5,8 @@ export default function HabitComponent({ habit }) {
   return (
     <Card className="mt-2" style={{ width: "100%" }}>
       <Card.Body>
-        <Card.Title>{habit}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+        <Card.Title>{habit.habitName}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">{habit.habitRating}</Card.Subtitle>
         <Card.Text>
           Some quick example text to build on the card title and make up the
           bulk of the card's content.

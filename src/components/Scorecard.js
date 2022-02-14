@@ -6,21 +6,19 @@ import Habit from "./Habit";
 export default function ScorecardComponent() {
   const [habitList, setHabitList] = useState([]);
 
-  const handleAddHabit = (habitName) => {
-    console.log(habitName);
-
-    setHabitList([...habitList, habitName]);
+  const handleAddHabit = (habit) => {
+    setHabitList([...habitList, habit]);
   };
 
-  useEffect(() => {
-    console.log(habitList[0]);
-  }, [habitList]);
+  //   useEffect(() => {
+  //     console.log(habitList[0]);
+  //   }, [habitList]);
 
   return (
     <Container>
       <div>
         {habitList.map((habit) => (
-          <Habit habit={habit} key={habit} />
+          <Habit habit={habit} key='yo' />
         ))}
       </div>
       <AddHabit handleAddHabit={handleAddHabit} />
