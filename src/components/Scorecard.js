@@ -18,7 +18,7 @@ export default function ScorecardComponent() {
     <Container>
       <div>
         {habitList.map((habit) => (
-          <Habit habit={habit} key='yo' />
+          <Habit habit={habit} key={habit.name} />
         ))}
       </div>
       <AddHabit handleAddHabit={handleAddHabit} />
