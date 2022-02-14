@@ -7,7 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 export default function AddHabitComponent({ handleAddHabit }) {
   const [addHabit, setAddHabit] = useState(false);
   const [habitName, setHabitName] = useState("");
-  const [habitRating, setHabitRating] = useState("");
+  const [habitRating, setHabitRating] = useState("Select Rating");
 
   if (addHabit) {
     return (
@@ -15,6 +15,7 @@ export default function AddHabitComponent({ handleAddHabit }) {
         onSubmit={(e) => {
           setAddHabit(false);
           setHabitName("");
+          setHabitRating("Select Rating");
           handleAddHabit({
               habitName: habitName,
               habitRating: habitRating,
@@ -23,9 +24,9 @@ export default function AddHabitComponent({ handleAddHabit }) {
           console.log(habitRating)
         }}
       >
-        <Form.Group className="mb-3">
-          <Form.Label>Habit name</Form.Label>
+        <Form.Group className="mb-2">
           <Form.Control
+            className="mt-2"
             type="text"
             placeholder="Enter habit name"
             value={habitName}
@@ -35,7 +36,8 @@ export default function AddHabitComponent({ handleAddHabit }) {
           />
           <DropdownButton
             id="dropdown-basic-button"
-            title="Dropdown button"
+            className="mt-2"
+            title={habitRating}
             onSelect={(e) => {
               setHabitRating(e);
             }}
@@ -45,7 +47,7 @@ export default function AddHabitComponent({ handleAddHabit }) {
             <Dropdown.Item eventKey="Positive">Positive</Dropdown.Item>
           </DropdownButton>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="success" type="submit">
           Submit
         </Button>
       </Form>
