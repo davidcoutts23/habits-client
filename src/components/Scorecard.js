@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import AddHabit from "./AddHabit";
 import Habit from "./Habit";
 
+
 export default function ScorecardComponent() {
   const [habitList, setHabitList] = useState([]);
 
@@ -21,7 +22,8 @@ export default function ScorecardComponent() {
           <Habit habit={habit} key={habit.name} />
         ))}
       </div>
-      <AddHabit handleAddHabit={handleAddHabit} />
+      
+        <AddHabit handleAddHabit={handleAddHabit} />
     </Container>
   );
 }
