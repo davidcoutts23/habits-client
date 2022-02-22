@@ -11,8 +11,11 @@ export default function AddHabitComponent({ handleAddHabit }) {
   const [addHabit, setAddHabit] = useState(false);
   const [habitName, setHabitName] = useState("");
   const [habitRating, setHabitRating] = useState("Select Rating");
-  
 
+  const handleAddApplicationIntention = (applicationIntention) => {
+    console.log(applicationIntention)
+  }
+  
   if (addHabit) {
     return (
       <Card className="mt-2">
@@ -53,7 +56,7 @@ export default function AddHabitComponent({ handleAddHabit }) {
               <Dropdown.Item eventKey="Neutral">Neutral</Dropdown.Item>
               <Dropdown.Item eventKey="Positive">Positive</Dropdown.Item>
             </DropdownButton>
-            <AddApplicationIntention/>
+            <AddApplicationIntention handleAddApplicationIntention = {handleAddApplicationIntention}/>
           </Form.Group>
           <Button variant="success" type="submit" className="mt-2 mb-2">
             Submit
