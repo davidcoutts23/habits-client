@@ -9,6 +9,7 @@ export default function ScorecardComponent() {
 
   const handleAddHabit = (habit) => {
     setHabitList([...habitList, habit]);
+    console.log(habit)
   };
 
   //   useEffect(() => {

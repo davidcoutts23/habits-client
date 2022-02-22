@@ -11,57 +11,63 @@ export default function AddHabitComponent({ handleAddHabit }) {
   const [addHabit, setAddHabit] = useState(false);
   const [habitName, setHabitName] = useState("");
   const [habitRating, setHabitRating] = useState("Select Rating");
+  const [applicationIntentions, setApplicationIntentions] = useState([]);
 
   const handleAddApplicationIntention = (applicationIntention) => {
-    console.log(applicationIntention)
-  }
-  
+    console.log(applicationIntention);
+    setApplicationIntentions(applicationIntentions => [...applicationIntentions, applicationIntention]);
+  };
+
   if (addHabit) {
     return (
       <Card className="mt-2">
         <Card.Header>Add new habit</Card.Header>
         <div className="card-body">
-        <Form
-          onSubmit={(e) => {
-            setAddHabit(false);
-            setHabitName("");
-            setHabitRating("Select Rating");
-            handleAddHabit({
-              habitName: habitName,
-              habitRating: habitRating,
-            });
-            console.log(habitName);
-            console.log(habitRating);
-          }}
-        >
-          <Form.Group className="mt-2">
-            <Form.Control
-              className="mt-2"
-              type="text"
-              placeholder="Enter habit name"
-              value={habitName}
-              onChange={(e) => {
-                setHabitName(e.target.value);
-              }}
-            />
-            <DropdownButton
-              id="dropdown-basic-button"
-              className="mt-2"
-              title={habitRating}
-              onSelect={(e) => {
-                setHabitRating(e);
-              }}
-            >
-              <Dropdown.Item eventKey="Negative">Negative</Dropdown.Item>
-              <Dropdown.Item eventKey="Neutral">Neutral</Dropdown.Item>
-              <Dropdown.Item eventKey="Positive">Positive</Dropdown.Item>
-            </DropdownButton>
-            <AddApplicationIntention handleAddApplicationIntention = {handleAddApplicationIntention}/>
-          </Form.Group>
-          <Button variant="success" type="submit" className="mt-2 mb-2">
-            Submit
-          </Button>
-        </Form>
+          <Form
+            onSubmit={(e) => {
+              setAddHabit(false);
+              setHabitName("");
+              setHabitRating("Select Rating");
+              handleAddHabit({
+                habitName: habitName,
+                habitRating: habitRating,
+                applicationIntentions: applicationIntentions,
+              });
+              console.log(habitName);
+              console.log(habitRating);
+              console.log(applicationIntentions);
+            }}
+          >
+            <Form.Group className="mt-2">
+              <Form.Control
+                className="mt-2"
+                type="text"
+                placeholder="Enter habit name"
+                value={habitName}
+                onChange={(e) => {
+                  setHabitName(e.target.value);
+                }}
+              />
+              <DropdownButton
+                id="dropdown-basic-button"
+                className="mt-2"
+                title={habitRating}
+                onSelect={(e) => {
+                  setHabitRating(e);
+                }}
+              >
+                <Dropdown.Item eventKey="Negative">Negative</Dropdown.Item>
+                <Dropdown.Item eventKey="Neutral">Neutral</Dropdown.Item>
+                <Dropdown.Item eventKey="Positive">Positive</Dropdown.Item>
+              </DropdownButton>
+              <AddApplicationIntention
+                handleAddApplicationIntention={handleAddApplicationIntention}
+              />
+            </Form.Group>
+            <Button variant="success" type="submit" className="mt-2 mb-2">
+              Submit
+            </Button>
+          </Form>
         </div>
       </Card>
     );

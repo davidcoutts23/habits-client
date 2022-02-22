@@ -12,10 +12,10 @@ export default function AddApplicationIntention({
   const [location, setLocation] = useState("");
 
   const handleSubmit = () => {
-    setAddApplicationIntention(false)
-    setBehaviour("")
-    setTime("")
-    setLocation("")
+    setAddApplicationIntention(false);
+    setBehaviour("");
+    setTime("");
+    setLocation("");
     handleAddApplicationIntention({
       behavior: behavior,
       time: time,
