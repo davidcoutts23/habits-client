@@ -8,7 +8,7 @@ import modifyHabitRatings from "../helpers/modifyHabitRatings";
 export default function ScorecardComponent() {
   const [habitList, setHabitList] = useState([]);
   const [habitRatings, setHabitRatings] = useState([]);
-  
+
   const handleAddHabit = (habit) => {
     setHabitList([...habitList, habit]);
     console.log(habit);
@@ -28,7 +28,7 @@ export default function ScorecardComponent() {
         ))}
       </div>
 
-      <AddHabit handleAddHabit={handleAddHabit} />
+      <AddHabit handleAddHabit={handleAddHabit} habitRatings={habitRatings} />
     </Container>
   );
 }

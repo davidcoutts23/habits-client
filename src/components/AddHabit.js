@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Form from "react-bootstrap/Form";
@@ -7,7 +7,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
 import AddApplicationIntention from "./AddApplicationIntention";
 
-export default function AddHabitComponent({ handleAddHabit }) {
+export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
   const [addHabit, setAddHabit] = useState(false);
   const [habitName, setHabitName] = useState("");
   const [habitRating, setHabitRating] = useState("Select Rating");
@@ -15,8 +15,15 @@ export default function AddHabitComponent({ handleAddHabit }) {
 
   const handleAddApplicationIntention = (applicationIntention) => {
     console.log(applicationIntention);
-    setApplicationIntentions(applicationIntentions => [...applicationIntentions, applicationIntention]);
+    setApplicationIntentions((applicationIntentions) => [
+      ...applicationIntentions,
+      applicationIntention,
+    ]);
   };
+
+  useEffect(() => {
+    console.log(habitRatings);
+  });
 
   if (addHabit) {
     return (
@@ -56,9 +63,13 @@ export default function AddHabitComponent({ handleAddHabit }) {
                   setHabitRating(e);
                 }}
               >
-                <Dropdown.Item eventKey="Negative">Negative</Dropdown.Item>
-                <Dropdown.Item eventKey="Neutral">Neutral</Dropdown.Item>
-                <Dropdown.Item eventKey="Positive">Positive</Dropdown.Item>
+                {habitRatings.map((habitRating) => {
+                  return (
+                    <Dropdown.Item eventKey={habitRating.id}>
+                      {habitRating.rating}
+                    </Dropdown.Item>
+                  );
+                })}
               </DropdownButton>
               <AddApplicationIntention
                 handleAddApplicationIntention={handleAddApplicationIntention}
