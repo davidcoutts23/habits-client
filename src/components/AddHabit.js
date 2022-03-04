@@ -10,7 +10,7 @@ import AddApplicationIntention from "./AddApplicationIntention";
 export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
   const [addHabit, setAddHabit] = useState(false);
   const [habitName, setHabitName] = useState("");
-  const [habitRating, setHabitRating] = useState("Select Rating");
+  const [habitRating, setHabitRating] = useState(null);
   const [applicationIntentions, setApplicationIntentions] = useState([]);
 
   const handleAddApplicationIntention = (applicationIntention) => {
@@ -30,7 +30,7 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
             onSubmit={(e) => {
               setAddHabit(false);
               setHabitName("");
-              setHabitRating("Select Rating");
+              setHabitRating(0);
               handleAddHabit({
                 habitName: habitName,
                 habitRating: habitRating,
@@ -54,14 +54,15 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
               <DropdownButton
                 id="dropdown-basic-button"
                 className="mt-2"
-                title={habitRating}
-                onSelect={(e) => {
-                  setHabitRating(e);
+                title={habitRating ? habitRating.rating : "Select Rating"}
+                onSelect={(habitRatingsIndex) => {
+                  console.log(habitRatings[habitRatingsIndex])
+                  setHabitRating(habitRatings[habitRatingsIndex]);
                 }}
               >
-                {habitRatings.map((habitRating) => {
+                {habitRatings.map((habitRating, habitRatingsIndex) => {
                   return (
-                    <Dropdown.Item eventKey={habitRating.id}>
+                    <Dropdown.Item eventKey={habitRatingsIndex}>
                       {habitRating.rating}
                     </Dropdown.Item>
                   );
