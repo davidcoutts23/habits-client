@@ -9,14 +9,19 @@ export default function ScorecardComponent() {
   const [habitList, setHabitList] = useState([]);
   const [habitRatings, setHabitRatings] = useState([]);
 
-  const handleAddHabit = (habit) => {
-    setHabitList([...habitList, habit]);
-    console.log(habit);
+  const handleAddHabit = () => {
+    axios.get("http://127.0.0.1:3000/api/v1/habits").then((res) => {
+      setHabitList(res.data);
+    });
   };
 
   useEffect(() => {
     axios.get("http://127.0.0.1:3000/api/v1/habit_ratings").then((res) => {
       setHabitRatings(modifyHabitRatings(res.data));
+    });
+
+    axios.get("http://127.0.0.1:3000/api/v1/habits").then((res) => {
+      setHabitList(res.data);
     });
   }, []);
 
@@ -24,7 +29,7 @@ export default function ScorecardComponent() {
     <Container>
       <div>
         {habitList.map((habit) => (
-          <Habit habit={habit} key={habit.name} />
+          <Habit habit={habit} key={habit.id} />
         ))}
       </div>
 
