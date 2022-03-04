@@ -32,6 +32,7 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
               setAddHabit(false);
               setHabitName("");
               setHabitRating(0);
+              setApplicationIntentions([]);
               handleAddHabit({
                 habitName: habitName,
                 habitRating: habitRating,
