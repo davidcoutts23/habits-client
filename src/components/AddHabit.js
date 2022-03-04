@@ -36,15 +36,14 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
               handleAddHabit({
                 habitName: habitName,
                 habitRating: habitRating,
-                applicationIntentions: applicationIntentions
+                applicationIntentions: applicationIntentions,
               });
 
               axios
                 .post("http://127.0.0.1:3000/api/v1/habits", {
                   name: habitName,
                   habit_rating_id: habitRating.id,
-                  application_intentions_attributes: applicationIntentions
-                  
+                  application_intentions_attributes: applicationIntentions,
                 })
                 .then(function (response) {
                   console.log(response);
@@ -52,9 +51,6 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
                 .catch(function (error) {
                   console.log(error);
                 });
-              // console.log(habitName);
-              // console.log(habitRating);
-              // console.log(applicationIntentions);
             }}
           >
             <Form.Group className="mt-2">
