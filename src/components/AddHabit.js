@@ -21,10 +21,6 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
     ]);
   };
 
-  useEffect(() => {
-    console.log(habitRatings);
-  });
-
   if (addHabit) {
     return (
       <Card className="mt-2">
