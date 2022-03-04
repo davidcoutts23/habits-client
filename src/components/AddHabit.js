@@ -56,7 +56,6 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
                 className="mt-2"
                 title={habitRating ? habitRating.rating : "Select Rating"}
                 onSelect={(habitRatingsIndex) => {
-                  console.log(habitRatings[habitRatingsIndex])
                   setHabitRating(habitRatings[habitRatingsIndex]);
                 }}
               >
