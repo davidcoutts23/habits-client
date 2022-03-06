@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
+import InputGroup from "react-bootstrap/InputGroup";
 
 export default function AddApplicationIntention({
   handleAddApplicationIntention,
@@ -33,8 +34,32 @@ export default function AddApplicationIntention({
                 console.log("yoyobongo");
               }}
             >
-              <Form.Label>I will...</Form.Label>
+              <InputGroup className="mb-2">
+                <InputGroup.Text id="basic-addon1">I will...</InputGroup.Text>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter desired behaviour"
+                  value={behaviour}
+                  onChange={(e) => {
+                    setBehaviour(e.target.value);
+                  }}
+                />
+              </InputGroup>
+              <InputGroup className="mb-2">
+                <InputGroup.Text id="basic-addon1">At...</InputGroup.Text>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter time when you will perform this behaviour"
+                  value={time}
+                  onChange={(e) => {
+                    setTime(e.target.value);
+                  }}
+                />
+              </InputGroup>
+              <InputGroup className="mb-2">
+                <InputGroup.Text id="basic-addon1">In...</InputGroup.Text>
               <Form.Control
+<<<<<<< Updated upstream
                 className="mb-2"
                 type="text"
                 placeholder="Enter desired behavior"
@@ -56,6 +81,8 @@ export default function AddApplicationIntention({
               <Form.Label>In...</Form.Label>
               <Form.Control
                 className="mb -2"
+=======
+>>>>>>> Stashed changes
                 type="text"
                 placeholder="Enter location where you will perform this behaviour"
                 value={location}
@@ -63,6 +90,7 @@ export default function AddApplicationIntention({
                   setLocation(e.target.value);
                 }}
               />
+              </InputGroup>
             </Form>
             <Button
               variant="success"
