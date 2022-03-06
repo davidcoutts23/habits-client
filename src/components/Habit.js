@@ -6,12 +6,12 @@ export default function HabitComponent({ habit }) {
     <Card
       className="mt-2"
       style={{ width: "100%" }}
-      border={habit.habitRating.colour}
+      border={habit.habit_rating.colour}
     >
       <Card.Body>
-        <Card.Title>{habit.habitName}</Card.Title>
+        <Card.Title>{habit.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
-          {habit.habitRating.rating}
+          {habit.habit_rating.rating}
         </Card.Subtitle>
         <Card.Text>
           Some quick example text to build on the card title and make up the

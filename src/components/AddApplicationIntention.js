@@ -8,7 +8,7 @@ export default function AddApplicationIntention({
   handleAddApplicationIntention,
 }) {
   const [addApplicationIntention, setAddApplicationIntention] = useState(false);
-  const [behavior, setBehaviour] = useState("");
+  const [behaviour, setBehaviour] = useState("");
   const [time, setTime] = useState("");
   const [location, setLocation] = useState("");
 
@@ -18,7 +18,7 @@ export default function AddApplicationIntention({
     setTime("");
     setLocation("");
     handleAddApplicationIntention({
-      behavior: behavior,
+      behaviour: behaviour,
       time: time,
       location: location,
     });
@@ -62,8 +62,8 @@ export default function AddApplicationIntention({
 <<<<<<< Updated upstream
                 className="mb-2"
                 type="text"
-                placeholder="Enter desired behavior"
-                value={behavior}
+                placeholder="Enter desired behaviour"
+                value={behaviour}
                 onChange={(e) => {
                   setBehaviour(e.target.value);
                 }}

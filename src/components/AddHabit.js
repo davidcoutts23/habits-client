@@ -6,11 +6,15 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
 import AddApplicationIntention from "./AddApplicationIntention";
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 import axios from "axios";
 import ApplicationIntention from "./ApplicationIntention";
 >>>>>>> Stashed changes
+=======
+import axios from "axios";
+>>>>>>> server-habit-add-and-display
 
 export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
   const [addHabit, setAddHabit] = useState(false);
@@ -33,17 +37,22 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
         <div className="card-body">
           <Form
             onSubmit={(e) => {
-              setAddHabit(false);
-              setHabitName("");
-              setHabitRating(0);
-              handleAddHabit({
-                habitName: habitName,
-                habitRating: habitRating,
-                applicationIntentions: applicationIntentions,
-              });
-              console.log(habitName);
-              console.log(habitRating);
-              console.log(applicationIntentions);
+              axios
+                .post("http://127.0.0.1:3000/api/v1/habits", {
+                  name: habitName,
+                  habit_rating_id: habitRating.id,
+                  application_intentions_attributes: applicationIntentions,
+                })
+                .then(function (response) {
+                  setAddHabit(false);
+                  setHabitName("");
+                  setHabitRating(0);
+                  setApplicationIntentions([]);
+                  handleAddHabit();
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
             }}
           >
             <Form.Group className="mt-2">
