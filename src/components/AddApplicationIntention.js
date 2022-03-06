@@ -59,7 +59,6 @@ export default function AddApplicationIntention({
               <InputGroup className="mb-2">
                 <InputGroup.Text id="basic-addon1">In...</InputGroup.Text>
               <Form.Control
-<<<<<<< Updated upstream
                 className="mb-2"
                 type="text"
                 placeholder="Enter desired behaviour"
@@ -81,8 +80,6 @@ export default function AddApplicationIntention({
               <Form.Label>In...</Form.Label>
               <Form.Control
                 className="mb -2"
-=======
->>>>>>> Stashed changes
                 type="text"
                 placeholder="Enter location where you will perform this behaviour"
                 value={location}

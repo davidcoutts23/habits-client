@@ -6,15 +6,8 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
 import AddApplicationIntention from "./AddApplicationIntention";
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
 import axios from "axios";
 import ApplicationIntention from "./ApplicationIntention";
->>>>>>> Stashed changes
-=======
-import axios from "axios";
->>>>>>> server-habit-add-and-display
 
 export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
   const [addHabit, setAddHabit] = useState(false);
