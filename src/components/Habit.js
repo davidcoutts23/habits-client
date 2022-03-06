@@ -6,7 +6,7 @@ export default function HabitComponent({ habit }) {
     <Card
       className="mt-2"
       style={{ width: "100%" }}
-      // border={habit.habitRating.colour}
+      border={habit.habit_rating.colour}
     >
       <Card.Body>
         <Card.Title>{habit.name}</Card.Title>
