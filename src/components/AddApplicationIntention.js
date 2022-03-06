@@ -59,35 +59,14 @@ export default function AddApplicationIntention({
               <InputGroup className="mb-2">
                 <InputGroup.Text id="basic-addon1">In...</InputGroup.Text>
               <Form.Control
-                className="mb-2"
                 type="text"
-                placeholder="Enter desired behaviour"
+                placeholder="Enter the location where you will perform this behaviour"
                 value={behaviour}
-                onChange={(e) => {
-                  setBehaviour(e.target.value);
-                }}
-              />
-              <Form.Label>At...</Form.Label>
-              <Form.Control
-                className="mb-2"
-                type="text"
-                placeholder="Enter time when you will perform this behaviour"
-                value={time}
-                onChange={(e) => {
-                  setTime(e.target.value);
-                }}
-              />
-              <Form.Label>In...</Form.Label>
-              <Form.Control
-                className="mb -2"
-                type="text"
-                placeholder="Enter location where you will perform this behaviour"
-                value={location}
                 onChange={(e) => {
                   setLocation(e.target.value);
                 }}
               />
-              </InputGroup>
+</InputGroup>
             </Form>
             <Button
               variant="success"
