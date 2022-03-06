@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
-import AddApplicationIntention from "./AddApplicationIntention";
+import AddApplicationIntention from "./applicationIntention/AddApplicationIntention";
 import axios from "axios";
 import ApplicationIntention from "./ApplicationIntention";
 
