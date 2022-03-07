@@ -7,7 +7,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
 import AddApplicationIntention from "./applicationIntention/AddApplicationIntention";
 import axios from "axios";
-import ApplicationIntention from "./ApplicationIntention";
+import ApplicationIntention from "./applicationIntention/ApplicationIntention";
 
 export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
   const [addHabit, setAddHabit] = useState(false);
@@ -74,7 +74,10 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
                   );
                 })}
               </DropdownButton>
-              <ApplicationIntention />
+              {applicationIntentions.map((applicationIntention)=> {
+                return(<ApplicationIntention applicationIntention={applicationIntention} />)
+              })
+            }
               <AddApplicationIntention
                 handleAddApplicationIntention={handleAddApplicationIntention}
               />
