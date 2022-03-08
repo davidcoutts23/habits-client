@@ -74,17 +74,26 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
                   );
                 })}
               </DropdownButton>
-              {applicationIntentions.map((applicationIntention, index)=> {
-                return(<ApplicationIntention applicationIntention={applicationIntention} key={index} />)
-              })
-            }
+              {applicationIntentions.map((applicationIntention, index) => {
+                return (
+                  <ApplicationIntention
+                    applicationIntention={applicationIntention}
+                    key={index}
+                  />
+                );
+              })}
               <AddApplicationIntention
                 handleAddApplicationIntention={handleAddApplicationIntention}
               />
             </Form.Group>
-            <Button variant="success" type="submit" className="mt-2 mb-2">
-              Submit
-            </Button>
+            <ButtonGroup className="mt-2 mb-2">
+              <Button variant="success" type="submit">
+                Submit
+              </Button>
+              <Button variant="danger" onClick={() => setAddHabit(false)}>
+                Cancel
+              </Button>
+            </ButtonGroup>
           </Form>
         </div>
       </Card>
