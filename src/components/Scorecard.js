@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import AddHabit from "./AddHabit";
-import Habit from "./Habit";
+import AddHabit from "./habit/AddHabit";
+import Habit from "./habit/Habit";
 import axios from "axios";
 import modifyHabitRatings from "../helpers/modifyHabitRatings";
 

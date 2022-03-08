@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import ApplicationIntention from "./applicationIntention/ApplicationIntention";
+import ApplicationIntention from "../applicationIntention/ApplicationIntention";
 
 export default function HabitComponent({ habit }) {
   return (
