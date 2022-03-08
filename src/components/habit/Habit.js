@@ -16,7 +16,7 @@ export default function HabitComponent({ habit }) {
         </Card.Subtitle>
         {habit.application_intentions.map((applicationIntention) => {
           return (
-            <ApplicationIntention applicationIntention={applicationIntention} />
+            <ApplicationIntention applicationIntention={applicationIntention} key={habit.id}/>
           );
         })}
       </Card.Body>

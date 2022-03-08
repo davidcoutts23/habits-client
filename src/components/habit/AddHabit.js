@@ -74,8 +74,8 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
                   );
                 })}
               </DropdownButton>
-              {applicationIntentions.map((applicationIntention)=> {
-                return(<ApplicationIntention applicationIntention={applicationIntention} />)
+              {applicationIntentions.map((applicationIntention, index)=> {
+                return(<ApplicationIntention applicationIntention={applicationIntention} key={index} />)
               })
             }
               <AddApplicationIntention
