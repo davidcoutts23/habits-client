@@ -33,6 +33,7 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
               axios
                 .post("http://127.0.0.1:3000/api/v1/habits", {
                   name: habitName,
+                  user_id: 1,
                   habit_rating_id: habitRating.id,
                   application_intentions_attributes: applicationIntentions,
                 })
