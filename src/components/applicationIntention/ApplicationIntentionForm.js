@@ -27,7 +27,7 @@ export default function ApplicationIntentionForm({ handleSubmit }) {
               />
             </InputGroup>
             <InputGroup className="mb-2">
-              <InputGroup.Text id="basic-addon1">At...</InputGroup.Text>
+              <InputGroup.Text id="basic-addon1">When I...</InputGroup.Text>
               <Form.Control
                 type="text"
                 placeholder="Enter time when you will perform this behaviour"
@@ -38,7 +38,7 @@ export default function ApplicationIntentionForm({ handleSubmit }) {
               />
             </InputGroup>
             <InputGroup className="mb-2">
-              <InputGroup.Text id="basic-addon1">In...</InputGroup.Text>
+              <InputGroup.Text id="basic-addon1">In the...</InputGroup.Text>
               <Form.Control
                 type="te xt"
                 placeholder="Enter the location where you will perform this behaviour"
