@@ -5,12 +5,12 @@ import Habit from "./habit/Habit";
 import { getHabits, getHabitRatings } from "../services/HabitService";
 
 export default function ScorecardComponent() {
-  const [habitList, setHabitList] = useState([]);
+  const [habits, setHabits] = useState([]);
   const [habitRatings, setHabitRatings] = useState([]);
 
   const handleAddHabit = () => {
     getHabits().then((res) => {
-      setHabitList(res.data);
+      setHabits(res.data);
     });
   };
 
@@ -20,14 +20,14 @@ export default function ScorecardComponent() {
     });
 
     getHabits().then((res) => {
-      setHabitList(res.data);
+      setHabits(res.data);
     });
   }, []);
 
   return (
     <Container>
       <div>
-        {habitList.map((habit) => (
+        {habits.map((habit) => (
           <Habit habit={habit} key={habit.id} />
         ))}
       </div>
