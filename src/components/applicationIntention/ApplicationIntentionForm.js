@@ -1,3 +1,5 @@
+// TODO: Add form validation. Right now adding an empty form breaks the app
+
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
