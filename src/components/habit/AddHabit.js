@@ -16,7 +16,6 @@ export default function AddHabit({ handleAddHabit, habitRatings }) {
   const [applicationIntentions, setApplicationIntentions] = useState([]);
 
   const handleAddApplicationIntention = (applicationIntention) => {
-    console.log(applicationIntention);
     setApplicationIntentions((applicationIntentions) => [
       ...applicationIntentions,
       applicationIntention,
