@@ -30,7 +30,3 @@ export default function NavbarComponent() {
     </Router>
   );
 }
-
-{
-  /* <Route path="/" element={<Home />} /> */
-}
