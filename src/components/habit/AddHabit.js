@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Form from "react-bootstrap/Form";
@@ -6,8 +6,8 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
 import AddApplicationIntention from "../applicationIntention/AddApplicationIntention";
-import axios from "axios";
 import ApplicationIntention from "../applicationIntention/ApplicationIntention";
+import { createHabit } from "../../services/HabitService";
 
 export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
   const [addHabit, setAddHabit] = useState(false);
@@ -30,13 +30,12 @@ export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
         <div className="card-body">
           <Form
             onSubmit={(e) => {
-              axios
-                .post("http://127.0.0.1:3000/api/v1/habits", {
-                  name: habitName,
-                  user_id: 1,
-                  habit_rating_id: habitRating.id,
-                  application_intentions_attributes: applicationIntentions,
-                })
+              createHabit({
+                name: habitName,
+                user_id: 1,
+                habit_rating_id: habitRating.id,
+                application_intentions_attributes: applicationIntentions,
+              })
                 .then(function (response) {
                   setAddHabit(false);
                   setHabitName("");

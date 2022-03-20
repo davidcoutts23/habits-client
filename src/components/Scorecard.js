@@ -4,7 +4,7 @@ import AddHabit from "./habit/AddHabit";
 import Habit from "./habit/Habit";
 import axios from "axios";
 import modifyHabitRatings from "../helpers/modifyHabitRatings";
-import { getHabits, createHabit } from "../services/HabitService";
+import { getHabits } from "../services/HabitService";
 
 export default function ScorecardComponent() {
   const [habitList, setHabitList] = useState([]);
