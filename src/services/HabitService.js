@@ -7,6 +7,10 @@ export const getHabits = () => {
 };
 
 export const createHabit = (habit) => {
-  console.log("trace")
   return axios.post(API_URL + "habits", habit, { headers: authHeader() });
 };
+  
+export const getHabitRatings = () => {
+  return axios.get(API_URL + "habit_ratings");
+};
+
