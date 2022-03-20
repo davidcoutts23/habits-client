@@ -4,6 +4,7 @@ import AddHabit from "./habit/AddHabit";
 import Habit from "./habit/Habit";
 import axios from "axios";
 import modifyHabitRatings from "../helpers/modifyHabitRatings";
+import { getHabits, createHabit } from "../services/HabitService";
 
 export default function ScorecardComponent() {
   const [habitList, setHabitList] = useState([]);
@@ -20,7 +21,7 @@ export default function ScorecardComponent() {
       setHabitRatings(modifyHabitRatings(res.data));
     });
 
-    axios.get("http://127.0.0.1:3000/api/v1/habits").then((res) => {
+    getHabits().then((res) => {
       setHabitList(res.data);
     });
   }, []);
