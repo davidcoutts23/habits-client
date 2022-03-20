@@ -9,7 +9,7 @@ import AddApplicationIntention from "../applicationIntention/AddApplicationInten
 import ApplicationIntention from "../applicationIntention/ApplicationIntention";
 import { createHabit } from "../../services/HabitService";
 
-export default function AddHabitComponent({ handleAddHabit, habitRatings }) {
+export default function AddHabit({ handleAddHabit, habitRatings }) {
   const [addHabit, setAddHabit] = useState(false);
   const [habitName, setHabitName] = useState("");
   const [habitRating, setHabitRating] = useState(null);
