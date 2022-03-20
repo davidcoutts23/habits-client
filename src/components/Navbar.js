@@ -1,6 +1,6 @@
 import React from "react";
-import { Navbar, Container, NavDropdown, Nav } from "react-bootstrap";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./About";
 import Scorecard from "./Scorecard";
 import Tracker from "./Tracker";
