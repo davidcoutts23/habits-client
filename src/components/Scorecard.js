@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import AddHabit from "./habit/AddHabit";
 import Habit from "./habit/Habit";
-import modifyHabitRatings from "../helpers/modifyHabitRatings";
 import { getHabits, getHabitRatings } from "../services/HabitService";
 
 export default function ScorecardComponent() {
@@ -17,7 +16,7 @@ export default function ScorecardComponent() {
 
   useEffect(() => {
     getHabitRatings().then((res) => {
-      setHabitRatings(modifyHabitRatings(res.data));
+      setHabitRatings(res.data);
     });
 
     getHabits().then((res) => {
