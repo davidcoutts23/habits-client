@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://127.0.0.1:3000/api/v1/";
+const API_URL = "https://shrouded-wildwood-58915.herokuapp.com/api/v1/";
 
 export const login = (email, password) => {
   return axios
