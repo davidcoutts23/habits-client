@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import ApplicationIntention from "../applicationIntention/ApplicationIntention";
 
-export default function HabitComponent({ habit }) {
+export default function Habit({ habit }) {
   return (
     <Card
       className="mt-2"
