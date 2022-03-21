@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "https://sheltered-wildwood-26062.herokuapp.com/";
+const API_URL = "https://sheltered-wildwood-26062.herokuapp.com/api/v1";
 // const API_URL = "http://localhost:3000/api/v1/";
 
 export const login = (email, password) => {
