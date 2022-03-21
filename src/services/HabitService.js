@@ -1,6 +1,6 @@
 import axios from "axios";
 import authHeader from "./AuthHeader";
-const API_URL = "https://sheltered-wildwood-26062.herokuapp.com/api/v1";
+const API_URL = "https://sheltered-wildwood-26062.herokuapp.com/api/v1/";
 // const API_URL = "http://localhost:3000/api/v1/";
 
 
