@@ -1,6 +1,5 @@
 import axios from "axios";
-const API_URL = "https://sheltered-wildwood-26062.herokuapp.com/api/v1/";
-// const API_URL = "http://localhost:3000/api/v1/";
+const API_URL = process.env.REACT_APP_HABITS_API_URL;
 
 export const login = (email, password) => {
   return axios
