@@ -18,7 +18,7 @@ export default function Habit({ habit }) {
           return (
             <ApplicationIntention
               applicationIntention={applicationIntention}
-              key={habit.id}
+              key={applicationIntention.id}
             />
           );
         })}
