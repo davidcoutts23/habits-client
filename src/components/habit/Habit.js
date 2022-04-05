@@ -2,10 +2,15 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import ApplicationIntention from "../applicationIntention/ApplicationIntention";
 import AddApplicationIntention from "../applicationIntention/AddApplicationIntention";
+import { createApplicationIntention } from "../../services/ApplicationIntentionService";
 
 export default function Habit({ habit }) {
   const handleAddApplicationIntention = (applicationIntention) => {
     console.log(applicationIntention);
+
+    createApplicationIntention(habit.id, applicationIntention).then(
+      window.location.reload()
+    );
   };
 
   return (
