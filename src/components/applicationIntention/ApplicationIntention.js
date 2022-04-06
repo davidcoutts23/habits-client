@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import ApplicationIntentionForm from "./ApplicationIntentionForm";
 import { editApplicationIntention } from "../../services/ApplicationIntentionService";
 import { deleteApplicationIntention } from "../../services/ApplicationIntentionService";
@@ -9,7 +8,6 @@ export default function ApplicationIntention({
   applicationIntention,
   editHabit,
 }) {
-  const [edit, setEdit] = useState(false);
 
   const handleEditApplicationIntention = (applicationIntentionFormValues) => {
     setEdit(false);
