@@ -10,7 +10,6 @@ export default function ApplicationIntention({
 }) {
 
   const handleEditApplicationIntention = (applicationIntentionFormValues) => {
-    setEdit(false);
     editApplicationIntention(
       applicationIntention.id,
       applicationIntentionFormValues
