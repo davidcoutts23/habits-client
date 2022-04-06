@@ -18,10 +18,15 @@ export default function ApplicationIntention({
     ).then(window.location.reload());
   };
 
+  const handleDeleteApplicationIntention = () => {
+    console.log("Delete")
+  }
+
   if (editHabit) {
     return (
       <ApplicationIntentionForm
         handleSubmit={handleEditApplicationIntention}
+        handleDelete={handleDeleteApplicationIntention}
         applicationIntention={applicationIntention}
       />
     );

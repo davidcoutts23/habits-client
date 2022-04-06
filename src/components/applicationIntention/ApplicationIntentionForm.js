@@ -8,6 +8,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 export default function ApplicationIntentionForm({
   handleSubmit,
+  handleDelete,
   applicationIntention,
 }) {
   const [behaviour, setBehaviour] = useState(
@@ -59,23 +60,35 @@ export default function ApplicationIntentionForm({
               />
             </InputGroup>
           </Form>
-          <Button
-            variant="success"
-            type="button"
-            className="mt-2 mb-2"
-            onClick={() => {
-              handleSubmit({
-                behaviour: behaviour,
-                time: time,
-                location: location,
-              });
-              setBehaviour("");
-              setTime("");
-              setLocation("");
-            }}
-          >
-            Submit
-          </Button>
+          <div>
+            <Button
+              variant="success"
+              type="button"
+              className="mt-2 mb-2"
+              onClick={() => {
+                handleSubmit({
+                  behaviour: behaviour,
+                  time: time,
+                  location: location,
+                });
+                setBehaviour("");
+                setTime("");
+                setLocation("");
+              }}
+            >
+              Submit
+            </Button>{" "}
+            <Button
+              variant="danger"
+              type="button"
+              className="mt-2 mb-2"
+              onClick={() => {
+                handleDelete();
+              }}
+            >
+              Delete
+            </Button>
+          </div>
         </div>
       </Card>
     </div>
