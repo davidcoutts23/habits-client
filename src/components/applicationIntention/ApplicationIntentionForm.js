@@ -6,17 +6,25 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import InputGroup from "react-bootstrap/InputGroup";
 
-export default function ApplicationIntentionForm({ handleSubmit }) {
-  const [behaviour, setBehaviour] = useState("");
-  const [time, setTime] = useState("");
-  const [location, setLocation] = useState("");
+export default function ApplicationIntentionForm({
+  handleSubmit,
+  applicationIntention,
+}) {
+  const [behaviour, setBehaviour] = useState(
+    applicationIntention ? applicationIntention.behaviour : ""
+  );
+  const [time, setTime] = useState(
+    applicationIntention ? applicationIntention.time : ""
+  );
+  const [location, setLocation] = useState(
+    applicationIntention ? applicationIntention.location : ""
+  );
 
   return (
     <div>
       <Card className="mt-2">
         <div className="card-body">
-          <Form
-          >
+          <Form>
             <InputGroup className="mb-2">
               <InputGroup.Text id="basic-addon1">I will...</InputGroup.Text>
               <Form.Control
@@ -66,7 +74,7 @@ export default function ApplicationIntentionForm({ handleSubmit }) {
               setLocation("");
             }}
           >
-            Add application intention
+            Submit
           </Button>
         </div>
       </Card>
