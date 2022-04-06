@@ -7,9 +7,9 @@ import { editApplicationIntention } from "../../services/ApplicationIntentionSer
 export default function ApplicationIntention({ applicationIntention }) {
   const [edit, setEdit] = useState(false);
 
-  const handleEditApplicationIntention = (applicationIntention) => {
+  const handleEditApplicationIntention = (applicationIntentionFormValues) => {
     setEdit(false);
-    editApplicationIntention(applicationIntention).then(
+    editApplicationIntention(applicationIntention.id, applicationIntentionFormValues).then(
       window.location.reload()
     );
   };

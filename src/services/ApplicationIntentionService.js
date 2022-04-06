@@ -9,10 +9,10 @@ export const createApplicationIntention = (habitId, applicationIntention) => {
   });
 };
 
-export const editApplicationIntention = (applicationIntention) => {
+export const editApplicationIntention = (applicationIntentionId, applicationIntentionParamaters) => {
   return axios.put(
-    API_URL + "application_intentions/" + applicationIntention.id,
-    applicationIntention,
+    API_URL + "application_intentions/" + applicationIntentionId,
+    applicationIntentionParamaters,
     { headers: authHeader() }
   );
 };
