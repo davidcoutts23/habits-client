@@ -8,7 +8,6 @@ export default function ApplicationIntention({ applicationIntention }) {
   const [edit, setEdit] = useState(false);
 
   const handleEditApplicationIntention = (applicationIntention) => {
-    console.log(applicationIntention);
     setEdit(false);
     editApplicationIntention(applicationIntention).then(
       window.location.reload()

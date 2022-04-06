@@ -6,8 +6,6 @@ import { createApplicationIntention } from "../../services/ApplicationIntentionS
 
 export default function Habit({ habit }) {
   const handleAddApplicationIntention = (applicationIntention) => {
-    console.log(applicationIntention);
-
     createApplicationIntention(habit.id, applicationIntention).then(
       window.location.reload()
     );
