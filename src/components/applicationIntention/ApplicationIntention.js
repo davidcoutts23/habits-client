@@ -4,17 +4,21 @@ import Button from "react-bootstrap/Button";
 import ApplicationIntentionForm from "./ApplicationIntentionForm";
 import { editApplicationIntention } from "../../services/ApplicationIntentionService";
 
-export default function ApplicationIntention({ applicationIntention }) {
+export default function ApplicationIntention({
+  applicationIntention,
+  editHabit,
+}) {
   const [edit, setEdit] = useState(false);
 
   const handleEditApplicationIntention = (applicationIntentionFormValues) => {
     setEdit(false);
-    editApplicationIntention(applicationIntention.id, applicationIntentionFormValues).then(
-      window.location.reload()
-    );
+    editApplicationIntention(
+      applicationIntention.id,
+      applicationIntentionFormValues
+    ).then(window.location.reload());
   };
 
-  if (edit) {
+  if (editHabit) {
     return (
       <ApplicationIntentionForm
         handleSubmit={handleEditApplicationIntention}
@@ -29,11 +33,6 @@ export default function ApplicationIntention({ applicationIntention }) {
         I will <strong>{applicationIntention.behaviour}</strong> when I{" "}
         <strong>{applicationIntention.time} </strong>
         in the <strong>{applicationIntention.location}</strong>
-        <div>
-          <Button variant="info" onClick={() => setEdit(true)}>
-            Edit
-          </Button>
-        </div>
       </Card.Body>
     </Card>
   );

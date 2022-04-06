@@ -16,14 +16,8 @@ export default function AddApplicationIntention({
     return <ApplicationIntentionForm handleSubmit={handleSubmit} />;
   }
   return (
-    <div>
-      <Button
-        className="mt-2"
-        variant="info"
-        onClick={() => setAddApplicationIntention(true)}
-      >
-        Add application intention
-      </Button>
-    </div>
+    <Button variant="info" onClick={() => setAddApplicationIntention(true)}>
+      Add application intention
+    </Button>
   );
 }
