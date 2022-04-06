@@ -2,9 +2,19 @@ import axios from "axios";
 import authHeader from "./AuthHeader";
 const API_URL = process.env.REACT_APP_HABITS_API_URL;
 
-export const createApplicationIntention = ( habitId, applicationIntention) => {
+export const createApplicationIntention = (habitId, applicationIntention) => {
   applicationIntention.habit_id = habitId;
-  console.log(applicationIntention)
-  return axios.post(API_URL + "application_intentions", applicationIntention, { headers: authHeader() });
+  console.log(applicationIntention);
+  return axios.post(API_URL + "application_intentions", applicationIntention, {
+    headers: authHeader(),
+  });
 };
 
+export const editApplicationIntention = (applicationIntention) => {
+  console.log(applicationIntention);
+  return axios.put(
+    API_URL + "application_intentions/" + applicationIntention.id,
+    applicationIntention,
+    { headers: authHeader() }
+  );
+};

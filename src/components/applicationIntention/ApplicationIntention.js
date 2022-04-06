@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ApplicationIntentionForm from "./ApplicationIntentionForm";
+import { editApplicationIntention } from "../../services/ApplicationIntentionService";
 
 export default function ApplicationIntention({ applicationIntention }) {
   const [edit, setEdit] = useState(false);
@@ -9,6 +10,9 @@ export default function ApplicationIntention({ applicationIntention }) {
   const handleEditApplicationIntention = (applicationIntention) => {
     console.log(applicationIntention);
     setEdit(false);
+    editApplicationIntention(applicationIntention).then(
+      window.location.reload()
+    );
   };
 
   if (edit) {

@@ -65,6 +65,7 @@ export default function ApplicationIntentionForm({
             className="mt-2 mb-2"
             onClick={() => {
               handleSubmit({
+                id: applicationIntention.id,
                 behaviour: behaviour,
                 time: time,
                 location: location,
