@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ApplicationIntentionForm from "./ApplicationIntentionForm";
 import { editApplicationIntention } from "../../services/ApplicationIntentionService";
+import { deleteApplicationIntention } from "../../services/ApplicationIntentionService";
 
 export default function ApplicationIntention({
   applicationIntention,
@@ -19,8 +20,10 @@ export default function ApplicationIntention({
   };
 
   const handleDeleteApplicationIntention = () => {
-    console.log("Delete")
-  }
+    deleteApplicationIntention(
+      applicationIntention.id
+    ).then(window.location.reload());
+  };
 
   if (editHabit) {
     return (

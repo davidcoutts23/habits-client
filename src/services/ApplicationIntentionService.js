@@ -16,3 +16,10 @@ export const editApplicationIntention = (applicationIntentionId, applicationInte
     { headers: authHeader() }
   );
 };
+
+export const deleteApplicationIntention = (applicationIntentionId) => {
+  return axios.delete(
+    API_URL + "application_intentions/" + applicationIntentionId,
+    { headers: authHeader() }
+  );
+};
