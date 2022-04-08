@@ -49,7 +49,7 @@ export default function Habit({ habit }) {
         <div className="mt-2">
           {editHabitPressed ? (
             <Button variant="danger" onClick={() => setEditHabitPressed(false)}>
-              Cancel
+              Cancel edit
             </Button>
           ) : (
             <Button variant="info" onClick={() => setEditHabitPressed(true)}>

@@ -24,6 +24,7 @@ export default function ApplicationIntentionForm({
   return (
     <div>
       <Card className="mt-2">
+        <Card.Header>{applicationIntention ? <strong>Edit application intention</strong> : <strong>Add application intention</strong>} </Card.Header>
         <div className="card-body">
           <Form>
             <InputGroup className="mb-2">

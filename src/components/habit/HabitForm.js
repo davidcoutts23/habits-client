@@ -31,6 +31,7 @@ export default function HabitForm({ handleSubmit, habit }) {
 
   return (
     <Card className="mt-2">
+      <Card.Header>{habit ? <strong>Edit Habit</strong> : <strong>Add new habit</strong>} </Card.Header>
       <div className="card-body">
         <Form>
           <Form.Group className="mt-2">
