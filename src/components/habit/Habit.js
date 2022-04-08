@@ -17,7 +17,7 @@ export default function Habit({ habit }) {
 
   const handleEditHabit = (habit) => {
     console.log(habit);
-  }
+  };
 
   return (
     <Card
@@ -25,14 +25,19 @@ export default function Habit({ habit }) {
       style={{ width: "100%" }}
       border={habit.habit_rating.colour}
     >
-      {/* {editHabit ? (
-        <HabitForm handleSubmit={handleEditHabit}></HabitForm>
-      ) : <div>yo</div>} */}
       <Card.Body>
-        <Card.Title>{habit.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">
-          {habit.habit_rating.rating}
-        </Card.Subtitle>
+        <div className="mt-2">
+          {editHabit ? (
+            <HabitForm handleSubmit={handleEditHabit} habit={habit}></HabitForm>
+          ) : (
+            <div>
+              <Card.Title>{habit.name}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                {habit.habit_rating.rating}
+              </Card.Subtitle>
+            </div>
+          )}
+        </div>
         {habit.application_intentions.map((applicationIntention) => {
           return (
             <ApplicationIntention

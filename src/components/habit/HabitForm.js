@@ -9,9 +9,11 @@ import AddApplicationIntention from "../applicationIntention/AddApplicationInten
 import ApplicationIntention from "../applicationIntention/ApplicationIntention";
 import { getHabitRatings } from "../../services/HabitService";
 
-export default function HabitForm({ handleSubmit }) {
-  const [habitName, setHabitName] = useState("");
-  const [habitRating, setHabitRating] = useState(null);
+export default function HabitForm({ handleSubmit, habit }) {
+  const [habitName, setHabitName] = useState(habit ? habit.name : "");
+  const [habitRating, setHabitRating] = useState(
+    habit ? habit.habit_rating : null
+  );
   const [applicationIntentions, setApplicationIntentions] = useState([]);
   const [habitRatings, setHabitRatings] = useState([]);
 
@@ -30,7 +32,6 @@ export default function HabitForm({ handleSubmit }) {
 
   return (
     <Card className="mt-2">
-      <Card.Header>Add new habit</Card.Header>
       <div className="card-body">
         <Form>
           <Form.Group className="mt-2">
