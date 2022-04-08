@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Form from "react-bootstrap/Form";
@@ -7,11 +7,19 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
 import AddApplicationIntention from "../applicationIntention/AddApplicationIntention";
 import ApplicationIntention from "../applicationIntention/ApplicationIntention";
+import { getHabitRatings } from "../../services/HabitService";
 
-export default function HabitForm({ handleSubmit, habitRatings }) {
+export default function HabitForm({ handleSubmit }) {
   const [habitName, setHabitName] = useState("");
   const [habitRating, setHabitRating] = useState(null);
   const [applicationIntentions, setApplicationIntentions] = useState([]);
+  const [habitRatings, setHabitRatings] = useState([]);
+
+  useEffect(() => {
+    getHabitRatings().then((res) => {
+      setHabitRatings(res.data);
+    });
+  });
 
   const handleAddApplicationIntention = (applicationIntention) => {
     setApplicationIntentions((applicationIntentions) => [
@@ -61,10 +69,9 @@ export default function HabitForm({ handleSubmit, habitRatings }) {
               />
             );
           })}
-
           <AddApplicationIntention
             handleAddApplicationIntention={handleAddApplicationIntention}
-          />{' '}
+          />{" "}
           <ButtonGroup className="mt-2 mb-2">
             <Button
               variant="success"

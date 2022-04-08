@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { createHabit } from "../../services/HabitService";
 import HabitForm from "./HabitForm";
 
-export default function AddHabit({ habitRatings }) {
+export default function AddHabit() {
   const [addHabit, setAddHabit] = useState(false);
 
   const handleAddHabit = (habit) => {
@@ -26,7 +26,7 @@ export default function AddHabit({ habitRatings }) {
 
   if (addHabit) {
     return (
-      <HabitForm handleSubmit={handleAddHabit} habitRatings={habitRatings} />
+      <HabitForm handleSubmit={handleAddHabit} />
     );
   }
   return (
