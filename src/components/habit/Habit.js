@@ -5,18 +5,17 @@ import ApplicationIntention from "../applicationIntention/ApplicationIntention";
 import AddApplicationIntention from "../applicationIntention/AddApplicationIntention";
 import { createApplicationIntention } from "../../services/ApplicationIntentionService";
 import HabitForm from "./HabitForm";
+import { editHabit } from "../../services/HabitService";
 
 export default function Habit({ habit }) {
-  const [editHabit, setEditHabit] = useState(false);
-
-  const handleAddApplicationIntention = (applicationIntention) => {
-    createApplicationIntention(habit.id, applicationIntention).then(
-      window.location.reload()
-    );
-  };
+  const [editHabitPressed, setEditHabitPressed] = useState(false);
 
   const handleEditHabit = (habit) => {
-    console.log(habit);
+    editHabit(habit)
+      .then(window.location.reload())
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (
@@ -27,7 +26,7 @@ export default function Habit({ habit }) {
     >
       <Card.Body>
         <div className="mt-2">
-          {editHabit ? (
+          {editHabitPressed ? (
             <HabitForm handleSubmit={handleEditHabit} habit={habit}></HabitForm>
           ) : (
             <div>
@@ -43,17 +42,17 @@ export default function Habit({ habit }) {
             <ApplicationIntention
               applicationIntention={applicationIntention}
               key={applicationIntention.id}
-              editHabit={editHabit}
+              editHabit={editHabitPressed}
             />
           );
         })}
         <div className="mt-2">
-          {editHabit ? (
-            <Button variant="danger" onClick={() => setEditHabit(false)}>
+          {editHabitPressed ? (
+            <Button variant="danger" onClick={() => setEditHabitPressed(false)}>
               Cancel
             </Button>
           ) : (
-            <Button variant="info" onClick={() => setEditHabit(true)}>
+            <Button variant="info" onClick={() => setEditHabitPressed(true)}>
               Edit habit
             </Button>
           )}

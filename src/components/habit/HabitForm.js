@@ -10,10 +10,9 @@ import ApplicationIntention from "../applicationIntention/ApplicationIntention";
 import { getHabitRatings } from "../../services/HabitService";
 
 export default function HabitForm({ handleSubmit, habit }) {
-  const [habitName, setHabitName] = useState(habit ? habit.name : "");
-  const [habitRating, setHabitRating] = useState(
-    habit ? habit.habit_rating : null
-  );
+  const [id, setId] = useState(habit ? habit.id : "");
+  const [name, setName] = useState(habit ? habit.name : "");
+  const [rating, setRating] = useState(habit ? habit.habit_rating : null);
   const [applicationIntentions, setApplicationIntentions] = useState([]);
   const [habitRatings, setHabitRatings] = useState([]);
 
@@ -21,7 +20,7 @@ export default function HabitForm({ handleSubmit, habit }) {
     getHabitRatings().then((res) => {
       setHabitRatings(res.data);
     });
-  });
+  }, []);
 
   const handleAddApplicationIntention = (applicationIntention) => {
     setApplicationIntentions((applicationIntentions) => [
@@ -39,18 +38,18 @@ export default function HabitForm({ handleSubmit, habit }) {
               className="mt-2"
               type="text"
               placeholder="Enter habit name"
-              value={habitName}
+              value={name}
               onChange={(e) => {
-                setHabitName(e.target.value);
+                setName(e.target.value);
               }}
             />
             <DropdownButton
               id="dropdown-basic-button"
               className="mt-2"
               variant="info"
-              title={habitRating ? habitRating.rating : "Select Rating"}
+              title={rating ? rating.rating : "Select Rating"}
               onSelect={(habitRatingsIndex) => {
-                setHabitRating(habitRatings[habitRatingsIndex]);
+                setRating(habitRatings[habitRatingsIndex]);
               }}
             >
               {habitRatings.map((habitRating, habitRatingsIndex) => {
@@ -77,7 +76,7 @@ export default function HabitForm({ handleSubmit, habit }) {
             <Button
               variant="success"
               onClick={() =>
-                handleSubmit({ habitName, habitRating, applicationIntentions })
+                handleSubmit({ id, name, rating, applicationIntentions })
               }
             >
               Submit
