@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import ApplicationIntention from "../applicationIntention/ApplicationIntention";
 import AddApplicationIntention from "../applicationIntention/AddApplicationIntention";
 import { createApplicationIntention } from "../../services/ApplicationIntentionService";
+import HabitForm from "./HabitForm";
 
 export default function Habit({ habit }) {
   const [editHabit, setEditHabit] = useState(false);
@@ -14,12 +15,19 @@ export default function Habit({ habit }) {
     );
   };
 
+  const handleEditHabit = (habit) => {
+    console.log(habit);
+  }
+
   return (
     <Card
       className="mt-2"
       style={{ width: "100%" }}
       border={habit.habit_rating.colour}
     >
+      {/* {editHabit ? (
+        <HabitForm handleSubmit={handleEditHabit}></HabitForm>
+      ) : <div>yo</div>} */}
       <Card.Body>
         <Card.Title>{habit.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
@@ -35,9 +43,6 @@ export default function Habit({ habit }) {
           );
         })}
         <div className="mt-2">
-          <AddApplicationIntention
-            handleAddApplicationIntention={handleAddApplicationIntention}
-          />{" "}
           {editHabit ? (
             <Button variant="danger" onClick={() => setEditHabit(false)}>
               Cancel

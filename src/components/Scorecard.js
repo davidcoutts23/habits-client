@@ -32,7 +32,7 @@ export default function ScorecardComponent() {
         ))}
       </div>
 
-      <AddHabit handleAddHabit={handleAddHabit} habitRatings={habitRatings} />
+      <AddHabit habitRatings={habitRatings} />
     </Container>
   );
 }
