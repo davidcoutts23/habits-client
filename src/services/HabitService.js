@@ -25,6 +25,12 @@ export const editHabit = (habit) => {
   });
 };
 
+export const deleteHabit = (habit) => {
+  return axios.delete(API_URL + "habits/" + habit.id, {
+    headers: authHeader(),
+  });
+};
+
 export const getHabitRatings = () => {
   return axios.get(API_URL + "habit_ratings");
 };

@@ -9,7 +9,12 @@ import AddApplicationIntention from "../applicationIntention/AddApplicationInten
 import ApplicationIntention from "../applicationIntention/ApplicationIntention";
 import { getHabitRatings } from "../../services/HabitService";
 
-export default function HabitForm({ handleSubmit, habit, editMode }) {
+export default function HabitForm({
+  handleSubmit,
+  handleDelete,
+  habit,
+  editMode,
+}) {
   const [id, setId] = useState(editMode ? habit.id : "");
   const [name, setName] = useState(editMode ? habit.name : "");
   const [rating, setRating] = useState(editMode ? habit.habit_rating : null);
@@ -40,7 +45,7 @@ export default function HabitForm({ handleSubmit, habit, editMode }) {
       </Card.Header>
       <div className="card-body">
         <Form>
-          <Form.Group className="mt-2">
+          <Form.Group className="mt-2 mb-2">
             <Form.Control
               className="mt-2"
               type="text"
@@ -81,16 +86,21 @@ export default function HabitForm({ handleSubmit, habit, editMode }) {
               handleAddApplicationIntention={handleAddApplicationIntention}
             />
           )}{" "}
-          <ButtonGroup className="mt-2 mb-2">
+          <div className="mt-2 mb-2">
             <Button
               variant="success"
               onClick={() =>
                 handleSubmit({ id, name, rating, applicationIntentions })
               }
             >
-              {editMode ? "Update habit" : "Create habit"}
-            </Button>
-          </ButtonGroup>
+              {editMode ? "Update" : "Create"}
+            </Button>{" "}
+            {editMode && (
+              <Button variant="danger" onClick={() => handleDelete()}>
+                Delete
+              </Button>
+            )}
+          </div>
         </Form>
       </div>
     </Card>

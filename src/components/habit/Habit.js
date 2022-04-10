@@ -5,13 +5,21 @@ import ApplicationIntention from "../applicationIntention/ApplicationIntention";
 import AddApplicationIntention from "../applicationIntention/AddApplicationIntention";
 import { createApplicationIntention } from "../../services/ApplicationIntentionService";
 import HabitForm from "./HabitForm";
-import { editHabit } from "../../services/HabitService";
+import { editHabit, deleteHabit } from "../../services/HabitService";
 
 export default function Habit({ habit }) {
   const [editHabitPressed, setEditHabitPressed] = useState(false);
 
   const handleEditHabit = (habit) => {
     editHabit(habit)
+      .then(window.location.reload())
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  const handleDeleteHabit = () => {
+    deleteHabit(habit)
       .then(window.location.reload())
       .catch(function (error) {
         console.log(error);
@@ -37,6 +45,7 @@ export default function Habit({ habit }) {
           {editHabitPressed ? (
             <HabitForm
               handleSubmit={handleEditHabit}
+              handleDelete={handleDeleteHabit}
               habit={habit}
               editMode={editHabitPressed}
             ></HabitForm>
