@@ -7,13 +7,18 @@ export const getHabits = () => {
 };
 
 export const createHabit = (habit) => {
-  return axios.post(API_URL + "habits", habit, { headers: authHeader() });
+  const habitParamaters = {
+    name: habit.name,
+    habit_rating_id: habit.rating.id,
+    application_intentions_attributes: habit.application_intentions
+  };
+  return axios.post(API_URL + "habits", habitParamaters, { headers: authHeader() });
 };
 
 export const editHabit = (habit) => {
   const habitParamaters = {
     name: habit.name,
-    habit_rating_id: habit.rating.id,
+    habit_rating_id: habit.rating.id
   };
   return axios.put(API_URL + "habits/" + habit.id, habitParamaters, {
     headers: authHeader(),

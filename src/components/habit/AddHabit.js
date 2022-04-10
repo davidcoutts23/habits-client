@@ -9,12 +9,7 @@ export default function AddHabit() {
   const [addHabit, setAddHabit] = useState(false);
 
   const handleAddHabit = (habit) => {
-    console.log(habit);
-    createHabit({
-      name: habit.habitName,
-      habit_rating_id: habit.habitRating.id,
-      application_intentions_attributes: habit.applicationIntentions,
-    })
+    createHabit(habit)
       .then(function (response) {
         setAddHabit(false);
         window.location.reload();
