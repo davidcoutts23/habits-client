@@ -21,7 +21,7 @@ export default function AddHabit() {
 
   if (addHabit) {
     return (
-      <HabitForm handleSubmit={handleAddHabit} />
+      <HabitForm handleSubmit={handleAddHabit} editMode={false} />
     );
   }
   return (
