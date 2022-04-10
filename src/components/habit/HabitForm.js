@@ -81,12 +81,12 @@ export default function HabitForm({
               />
             );
           })}
+          <div className="mt-2 mb-2">
           {!editMode && (
             <AddApplicationIntention
               handleAddApplicationIntention={handleAddApplicationIntention}
             />
           )}{" "}
-          <div className="mt-2 mb-2">
             <Button
               variant="success"
               onClick={() =>
