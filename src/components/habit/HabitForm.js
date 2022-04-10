@@ -9,10 +9,10 @@ import AddApplicationIntention from "../applicationIntention/AddApplicationInten
 import ApplicationIntention from "../applicationIntention/ApplicationIntention";
 import { getHabitRatings } from "../../services/HabitService";
 
-export default function HabitForm({ handleSubmit, habit }) {
-  const [id, setId] = useState(habit ? habit.id : "");
-  const [name, setName] = useState(habit ? habit.name : "");
-  const [rating, setRating] = useState(habit ? habit.habit_rating : null);
+export default function HabitForm({ handleSubmit, habit, editMode }) {
+  const [id, setId] = useState(editMode ? habit.id : "");
+  const [name, setName] = useState(editMode ? habit.name : "");
+  const [rating, setRating] = useState(editMode ? habit.habit_rating : null);
   const [applicationIntentions, setApplicationIntentions] = useState([]);
   const [habitRatings, setHabitRatings] = useState([]);
 
@@ -31,7 +31,13 @@ export default function HabitForm({ handleSubmit, habit }) {
 
   return (
     <Card className="mt-2">
-      <Card.Header>{habit ? <strong>Edit Habit</strong> : <strong>Add new habit</strong>} </Card.Header>
+      <Card.Header>
+        {editMode ? (
+          <strong>Edit Habit</strong>
+        ) : (
+          <strong>Add new habit</strong>
+        )}{" "}
+      </Card.Header>
       <div className="card-body">
         <Form>
           <Form.Group className="mt-2">
@@ -70,9 +76,11 @@ export default function HabitForm({ handleSubmit, habit }) {
               />
             );
           })}
-          <AddApplicationIntention
-            handleAddApplicationIntention={handleAddApplicationIntention}
-          />{" "}
+          {!editMode && (
+            <AddApplicationIntention
+              handleAddApplicationIntention={handleAddApplicationIntention}
+            />
+          )}{" "}
           <ButtonGroup className="mt-2 mb-2">
             <Button
               variant="success"
@@ -80,7 +88,7 @@ export default function HabitForm({ handleSubmit, habit }) {
                 handleSubmit({ id, name, rating, applicationIntentions })
               }
             >
-              Submit
+              {editMode ? "Update habit" : "Create habit"}
             </Button>
           </ButtonGroup>
         </Form>

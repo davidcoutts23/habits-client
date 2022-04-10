@@ -18,6 +18,14 @@ export default function Habit({ habit }) {
       });
   };
 
+  const handleAddApplicationIntention = (applicationIntention) => {
+    createApplicationIntention(habit.id, applicationIntention)
+      .then(window.location.reload())
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   return (
     <Card
       className="mt-2"
@@ -27,7 +35,11 @@ export default function Habit({ habit }) {
       <Card.Body>
         <div className="mt-2">
           {editHabitPressed ? (
-            <HabitForm handleSubmit={handleEditHabit} habit={habit}></HabitForm>
+            <HabitForm
+              handleSubmit={handleEditHabit}
+              habit={habit}
+              editMode={editHabitPressed}
+            ></HabitForm>
           ) : (
             <div>
               <Card.Title>{habit.name}</Card.Title>
@@ -47,6 +59,9 @@ export default function Habit({ habit }) {
           );
         })}
         <div className="mt-2">
+          <AddApplicationIntention
+            handleAddApplicationIntention={handleAddApplicationIntention}
+          />{" "}
           {editHabitPressed ? (
             <Button variant="danger" onClick={() => setEditHabitPressed(false)}>
               Cancel edit
