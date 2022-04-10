@@ -59,17 +59,19 @@ export default function Habit({ habit }) {
           );
         })}
         <div className="mt-2">
-          <AddApplicationIntention
-            handleAddApplicationIntention={handleAddApplicationIntention}
-          />{" "}
           {editHabitPressed ? (
             <Button variant="danger" onClick={() => setEditHabitPressed(false)}>
               Cancel edit
             </Button>
           ) : (
-            <Button variant="info" onClick={() => setEditHabitPressed(true)}>
-              Edit habit
-            </Button>
+            <div>
+              <AddApplicationIntention
+                handleAddApplicationIntention={handleAddApplicationIntention}
+              />{" "}
+              <Button variant="info" onClick={() => setEditHabitPressed(true)}>
+                Edit habit
+              </Button>
+            </div>
           )}
         </div>
       </Card.Body>

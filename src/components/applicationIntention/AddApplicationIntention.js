@@ -13,7 +13,7 @@ export default function AddApplicationIntention({
   };
 
   if (addApplicationIntention) {
-    return <ApplicationIntentionForm handleSubmit={handleSubmit} />;
+    return <ApplicationIntentionForm handleSubmit={handleSubmit} editMode={false} />;
   }
   return (
     <Button variant="info" onClick={() => setAddApplicationIntention(true)}>
