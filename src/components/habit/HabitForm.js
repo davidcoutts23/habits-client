@@ -7,6 +7,11 @@ import Card from "react-bootstrap/Card";
 import AddApplicationIntention from "../applicationIntention/AddApplicationIntention";
 import ApplicationIntention from "../applicationIntention/ApplicationIntention";
 import { getHabitRatings } from "../../services/HabitService";
+import {
+  parseDaysOfWeekActiveSelected,
+  daysOfWeek,
+} from "../../helpers/DaysOfWeekActive";
+import Select from "react-select";
 
 export default function HabitForm({
   handleSubmit,
@@ -19,6 +24,7 @@ export default function HabitForm({
   const [rating, setRating] = useState(editMode ? habit.habit_rating : null);
   const [applicationIntentions, setApplicationIntentions] = useState([]);
   const [habitRatings, setHabitRatings] = useState([]);
+  const [daysOfWeekActive, setDaysOfWeekActive] = useState(daysOfWeek);
 
   useEffect(() => {
     getHabitRatings().then((res) => {
@@ -71,6 +77,13 @@ export default function HabitForm({
                 );
               })}
             </DropdownButton>
+            <Select
+              defaultValue={daysOfWeek}
+              options={daysOfWeek}
+              isMulti
+              className="basic-multi-select mt-2"
+              onChange={setDaysOfWeekActive}
+            />
           </Form.Group>
           {applicationIntentions.map((applicationIntention, index) => {
             return (
@@ -81,15 +94,22 @@ export default function HabitForm({
             );
           })}
           <div className="mt-2 mb-2">
-          {!editMode && (
-            <AddApplicationIntention
-              handleAddApplicationIntention={handleAddApplicationIntention}
-            />
-          )}{" "}
+            {!editMode && (
+              <AddApplicationIntention
+                handleAddApplicationIntention={handleAddApplicationIntention}
+              />
+            )}{" "}
             <Button
               variant="success"
               onClick={() =>
-                handleSubmit({ id, name, rating, applicationIntentions })
+                handleSubmit({
+                  id: id,
+                  name: name,
+                  rating: rating,
+                  daysOfWeekActive:
+                    parseDaysOfWeekActiveSelected(daysOfWeekActive),
+                  applicationIntentions: applicationIntentions,
+                })
               }
             >
               {editMode ? "Update" : "Create"}

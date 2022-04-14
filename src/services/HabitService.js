@@ -10,6 +10,7 @@ export const createHabit = (habit) => {
   const habitParamaters = {
     name: habit.name,
     habit_rating_id: habit.rating.id,
+    days_of_week_active: habit.daysOfWeekActive,
     application_intentions_attributes: habit.applicationIntentions
   };
   return axios.post(API_URL + "habits", habitParamaters, { headers: authHeader() });
