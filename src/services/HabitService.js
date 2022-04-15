@@ -19,7 +19,8 @@ export const createHabit = (habit) => {
 export const editHabit = (habit) => {
   const habitParamaters = {
     name: habit.name,
-    habit_rating_id: habit.rating.id
+    habit_rating_id: habit.rating.id,
+    days_of_week_active: habit.daysOfWeekActive
   };
   return axios.put(API_URL + "habits/" + habit.id, habitParamaters, {
     headers: authHeader(),

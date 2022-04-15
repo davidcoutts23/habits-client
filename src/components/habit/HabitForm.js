@@ -10,6 +10,7 @@ import { getHabitRatings } from "../../services/HabitService";
 import {
   parseDaysOfWeekActiveSelected,
   daysOfWeek,
+  convertDaysOfWeek,
 } from "../../helpers/DaysOfWeekActive";
 import Select from "react-select";
 
@@ -24,7 +25,9 @@ export default function HabitForm({
   const [rating, setRating] = useState(editMode ? habit.habit_rating : null);
   const [applicationIntentions, setApplicationIntentions] = useState([]);
   const [habitRatings, setHabitRatings] = useState([]);
-  const [daysOfWeekActive, setDaysOfWeekActive] = useState(daysOfWeek);
+  const [daysOfWeekActive, setDaysOfWeekActive] = useState(
+    editMode ? convertDaysOfWeek(habit.days_of_week_active) : daysOfWeek
+  );
 
   useEffect(() => {
     getHabitRatings().then((res) => {
@@ -78,7 +81,11 @@ export default function HabitForm({
               })}
             </DropdownButton>
             <Select
-              defaultValue={daysOfWeek}
+              defaultValue={
+                editMode
+                  ? convertDaysOfWeek(habit.days_of_week_active)
+                  : daysOfWeek
+              }
               options={daysOfWeek}
               isMulti
               className="basic-multi-select mt-2"
@@ -101,7 +108,7 @@ export default function HabitForm({
             )}{" "}
             <Button
               variant="success"
-              onClick={() =>
+              onClick={() => {
                 handleSubmit({
                   id: id,
                   name: name,
@@ -109,8 +116,8 @@ export default function HabitForm({
                   daysOfWeekActive:
                     parseDaysOfWeekActiveSelected(daysOfWeekActive),
                   applicationIntentions: applicationIntentions,
-                })
-              }
+                });
+              }}
             >
               {editMode ? "Update" : "Create"}
             </Button>{" "}
