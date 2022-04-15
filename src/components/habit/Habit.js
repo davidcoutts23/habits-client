@@ -6,6 +6,7 @@ import AddApplicationIntention from "../applicationIntention/AddApplicationInten
 import { createApplicationIntention } from "../../services/ApplicationIntentionService";
 import HabitForm from "./HabitForm";
 import { editHabit, deleteHabit } from "../../services/HabitService";
+import DaysOfWeekActive from "./DaysOfWeekActive";
 
 export default function Habit({ habit }) {
   const [editHabitPressed, setEditHabitPressed] = useState(false);
@@ -55,6 +56,7 @@ export default function Habit({ habit }) {
               <Card.Subtitle className="mb-2 text-muted">
                 {habit.habit_rating.rating}
               </Card.Subtitle>
+              <DaysOfWeekActive daysOfWeekActive={habit.days_of_week_active} />
             </div>
           )}
         </div>
