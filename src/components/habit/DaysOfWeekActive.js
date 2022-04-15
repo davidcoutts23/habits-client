@@ -1,9 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+import {
+  capitalizeFirstLetter,
+} from "../../helpers/DaysOfWeekActive";
 
 //TODO: Figure out why the day cannot be bold
 export default function DaysOfWeekActive(daysOfWeekActive) {
