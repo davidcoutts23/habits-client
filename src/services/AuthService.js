@@ -18,3 +18,14 @@ export const login = (email, password) => {
 export const getCurrentUser = () => {
   return localStorage.getItem("user");
 };
+
+export const logout = () => {
+  localStorage.removeItem("user");
+}
+
+export const respondToAuthenticationFailure = (errorResponseStatus) => {
+  if(errorResponseStatus == 401){
+    logout();
+    window.location.reload();
+  }
+}
