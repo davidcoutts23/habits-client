@@ -3,7 +3,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./About";
 import Scorecard from "./Scorecard";
-import Tracker from "./Tracker";
+import Tracker from "./habitTracker/HabitTracker";
 
 export default function NavbarComponent() {
   return (
