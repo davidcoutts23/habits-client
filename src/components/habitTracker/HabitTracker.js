@@ -26,7 +26,9 @@ export default function TrackerComponent() {
     });
     getUnprocessedHabitTrackerEntries().then((res) => {
       setUnprocessedHabitTrackerEntries(res.data);
-      setHabitTrackerEntriesToProcess(true);
+      if (res.data.length > 0) {
+        setHabitTrackerEntriesToProcess(true);
+      }
     });
   }, []);
 
