@@ -10,3 +10,16 @@ export const getUnprocessedHabitTrackerEntries = () => {
       respondToAuthenticationFailure(error.response.status);
     });
 };
+
+export const editHabitTrackerEntry = (habitTrackerEntryId, completionStatus) => {
+  const habitTrackerEntryParamaters = {
+    completion_status: completionStatus
+  };
+  return axios
+    .put(API_URL + "habit_tracker_entries/" + habitTrackerEntryId, habitTrackerEntryParamaters, {
+      headers: authHeader(),
+    })
+    .catch((error) => {
+      respondToAuthenticationFailure(error.response.status);
+    });
+};

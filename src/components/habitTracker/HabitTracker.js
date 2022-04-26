@@ -5,7 +5,10 @@ import Card from "react-bootstrap/Card";
 import Habit from "../habit/Habit";
 import NoUnprocessedHabitTrackerEntries from "./NoUnprocessedHabitTrackerEntries";
 import { getHabits } from "../../services/HabitService";
-import { getUnprocessedHabitTrackerEntries } from "../../services/HabitTrackerEntryService";
+import {
+  getUnprocessedHabitTrackerEntries,
+  editHabitTrackerEntry,
+} from "../../services/HabitTrackerEntryService";
 
 export default function TrackerComponent() {
   const [habits, setHabits] = useState([]);
@@ -36,8 +39,8 @@ export default function TrackerComponent() {
     setProcessedHabitTrackerEntries([
       ...processedHabitTrackerEntries,
       {
-        habitTrackerEntryId:
-          unprocessedHabitTrackerEntries[unprocessedHabitTrackerEntryIndex].id,
+        id: unprocessedHabitTrackerEntries[unprocessedHabitTrackerEntryIndex]
+          .id,
         completionStatus: status,
       },
     ]);
@@ -50,6 +53,12 @@ export default function TrackerComponent() {
         processedHabitTrackerEntries.length
       ) {
         setHabitTrackerEntriesToProcess(false);
+        processedHabitTrackerEntries.map((habitTrackerEntry) => {
+          editHabitTrackerEntry(
+            habitTrackerEntry.id,
+            habitTrackerEntry.completionStatus
+          );
+        });
       } else {
         setUnprocessedHabitTrackerEntryIndex(
           unprocessedHabitTrackerEntryIndex + 1
