@@ -37,7 +37,7 @@ export default function Habit({ habit }) {
 
   return (
     <Card
-      className="mt-2"
+      className="shadow mt-2"
       style={{ width: "100%" }}
       border={habit.habit_rating.colour}
     >
