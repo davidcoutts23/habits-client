@@ -3,12 +3,12 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Habit from "../habit/Habit";
-import NoUnprocessedHabitTrackerEntries from "./NoUnprocessedHabitTrackerEntries";
 import { getHabits } from "../../services/HabitService";
 import {
   getUnprocessedHabitTrackerEntries,
   editHabitTrackerEntry,
 } from "../../services/HabitTrackerEntryService";
+import HabitTrackerProgressWeek from "./HabitTrackerProgressWeek";
 
 export default function TrackerComponent() {
   const [habits, setHabits] = useState([]);
@@ -97,7 +97,11 @@ export default function TrackerComponent() {
           </Card>
         </div>
       ) : (
-        <NoUnprocessedHabitTrackerEntries />
+        <div>
+        {habits.map((habit) => (
+          <HabitTrackerProgressWeek habit={habit} key={habit.id} />
+        ))}
+      </div>
       )}
     </Container>
   );
