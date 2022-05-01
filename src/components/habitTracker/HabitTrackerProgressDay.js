@@ -24,7 +24,7 @@ export default function HabitTrackerProgressDay({
       style={dayColour(completionStatus)}
       className="shadow rounded text-center"
     >
-      {<strong>{dayOfWeek}</strong>}
+      {<strong>{dayOfWeek.substring(0,3)}</strong>}
     </Col>
   );
 }
