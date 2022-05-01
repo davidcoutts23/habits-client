@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./About";
 import Scorecard from "./Scorecard";
 import Tracker from "./habitTracker/HabitTracker";
+import Logout from "./Logout";
 
 export default function NavbarComponent() {
   return (
@@ -17,6 +18,7 @@ export default function NavbarComponent() {
               <Nav.Link href="tracker">Tracker</Nav.Link>
               <Nav.Link href="about">About</Nav.Link>
               <Nav.Link href="scorecard">Scorecard</Nav.Link>
+              <Nav.Link href="logout">Logout</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -26,6 +28,7 @@ export default function NavbarComponent() {
         <Route path="/tracker" element={<Tracker />} />
         <Route path="/scorecard" element={<Scorecard />} />
         <Route path="/" element={<Scorecard />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </Router>
   );
